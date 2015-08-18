@@ -1,0 +1,10 @@
+
+
+<%= form_tag search_products_path do %>
+  <%= search_field_tag "searchword" %>
+  <%= submit_tag %>
+<% end %>
+
+<% @products.each do |product| %>
+  <%= product.name %>
+  <% end %>
