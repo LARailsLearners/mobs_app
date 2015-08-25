@@ -1,10 +1,11 @@
-
-
-<%= form_tag search_products_path do %>
-  <%= search_field_tag "searchword" %>
-  <%= submit_tag %>
+<%= form_tag("/", method: "get") do %>
+  <%= label_tag(:searchword, "Search for:") %>
+  <%= search_field_tag(:searchword) %>
+  <%= submit_tag("Search") %>
 <% end %>
 
-<% @products.each do |product| %>
-  <%= product.name %>
+<% if @products %>
+  <% @products.each do |product| %>
+    <%= product.name %>
   <% end %>
+<% end %>
