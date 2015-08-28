@@ -8,6 +8,10 @@
 
 <% if @products %>
   <% @products.each do |product| %>
-    <%= product.name %>
+  <p>
+    <strong><%= product.name %></strong>
+    <%= number_to_currency(product.price) %><br>
+    <%= product.description %>
+  </p>
   <% end %>
 <% end %>
