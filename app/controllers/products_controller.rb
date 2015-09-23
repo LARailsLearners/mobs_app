@@ -1,14 +1,11 @@
 class ProductsController < ApplicationController
 
   def index
-  end
-
-  def search
-    # fail
-    search=params[:searchword]
-    @products = Product.where("name LIKE ?", "%#{search}%")
-    # redirect_to products_url
-    render :index
+    @products = if params[:searchword]
+                  Product.where("name LIKE ?", "%#{params[:searchword]}%")
+                else
+                  Product.all
+                end
   end
 
 end
